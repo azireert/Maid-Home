@@ -55,7 +55,7 @@ import { VisiteListComponent } from './views/visite-list/visite-list.component';
     ReactiveFormsModule,
     MatNativeDateModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCrHj-fQEK6E-0AQPAv1AJe3xEjplzHYe0'
+      apiKey: ''
     }),
     NguCarouselModule,
     AmazingTimePickerModule,
