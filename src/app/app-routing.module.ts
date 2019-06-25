@@ -1,15 +1,34 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './views/home/home.component';
+import {MaidListComponent} from './views/maid-list/maid-list.component';
+import {PlanificationComponent} from './views/planification/planification.component';
+import {MapComponent} from './views/map/map.component';
+import {VisiteListComponent} from './views/visite-list/visite-list.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent
+    path: 'maids/:region',
+    component: MaidListComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
+  },
+  {
+    path: 'menages',
+    component: VisiteListComponent
+  },
+  { path: '',
+    redirectTo: '/map',
+    pathMatch: 'full'
+  },
+  {
+    path: 'planification/:id',
+    component: PlanificationComponent
   },
   {
     path: '**',
-    redirectTo: '/home'
+    redirectTo: '/map'
   }
 ];
 

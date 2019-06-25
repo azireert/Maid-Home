@@ -1,14 +1,17 @@
 .example-card {
-    max-width: 600px;
+    max-width: 500px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
 
 .card-femme {
     margin-top: 2em;
 }
+
 .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
 }
+
 .example-container {
     display: flex;
     flex-direction: column;
@@ -17,3 +20,13 @@
 .example-container > * {
     width: 100%;
 }
+
+
+.leftRs {
+    visibility: hidden;
+}
+
+.rightRs {
+    visibility: hidden;
+}
+

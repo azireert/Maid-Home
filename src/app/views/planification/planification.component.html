@@ -1,0 +1,61 @@
+<app-header [title]="'Planifier votre ménage'"></app-header>
+<div class="container-fluid form-visit">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <form [formGroup]="visitForm" (ngSubmit)="sendTraining(f)" #f="ngForm" >
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input matInput [matDatepicker]="picker" placeholder="Choisir la date" name="dateArrivee" [formControl]="visitForm.controls['dateArrivee']" disabled="disabled" >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker disabled="false"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input matInput atp-time-picker placeholder="00:00" name="heureArrivee" [formControl]="visitForm.controls['heureArrivee']">
+            <span matSuffix><mat-icon>timer</mat-icon></span>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Description de la tâche" name="description" [formControl]="visitForm.controls['description']"></textarea>
+            <span matSuffix><mat-icon>subject</mat-icon></span>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Adresse" name="adresse" [formControl]="visitForm.controls['adresse']">
+            <span matSuffix><mat-icon>home</mat-icon></span>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Ville" name="ville" [formControl]="visitForm.controls['ville']">
+            <span matSuffix><mat-icon>place</mat-icon></span>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Code Postal" name="cp" [formControl]="visitForm.controls['cp']">
+            <span matSuffix><mat-icon>label</mat-icon></span>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Gratification" name="gratification" [formControl]="visitForm.controls['gratification']">
+            <span matSuffix><mat-icon>attach_money</mat-icon></span>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <button mat-stroked-button color="primary" [disabled]="!visitForm.valid" type="submit" ><mat-icon>send</mat-icon> Planifiez</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<app-footer [isSticky]="false"></app-footer>
+
+

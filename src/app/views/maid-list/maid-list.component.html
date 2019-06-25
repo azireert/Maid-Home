@@ -1,0 +1,38 @@
+<app-header [title]="'Choisissez votre femme de ménage'"></app-header>
+
+<div *ngIf="isDataAvailable">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-fluid" src="../../../assets/img/swipe2.png" alt="swipe">
+      </div>
+      <div class="col-md-4">
+        <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="tabMenage" class="carousel">
+          <div *nguCarouselDef="let m;" class="item">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + m.avatar + ')'}"></div>
+                <mat-card-title>{{m.prenom}} {{m.nom}}</mat-card-title>
+                <mat-card-subtitle>Note : {{m.note}}/10</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image [src]="m.photo" alt="Photo of a Shiba Inu">
+              <mat-card-content>
+                <p>
+                  {{m.description}}
+                </p>
+              </mat-card-content>
+              <mat-card-actions class="text-center">
+                <button mat-button>Notez <mat-icon>star_border</mat-icon></button>
+                <button mat-button routerLink="/planification/{{m.id}}">Planifier un rendez-vous</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+          <button NguCarouselNext class="rightRs">></button>
+          <button NguCarouselPrev class="leftRs"><</button>
+        </ngu-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer [isSticky]="false"></app-footer>

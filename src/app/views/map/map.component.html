@@ -1,0 +1,33 @@
+<app-header [title]="'Choisissez le département'"></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="5">
+        <agm-marker *ngFor="let marker of markers"
+                    [latitude]="marker.lat"
+                    [longitude]="marker.lng"
+                    [opacity]="marker.alpha"
+                    [markerDraggable]="false"
+                    (markerClick)="selectMarker(marker,$event)"
+                    (mouseOver)="openInfo(infoWindow, $event)"
+                    (mouseOut)="closeInfo(infoWindow, $event)"><agm-info-window #infoWindow>{{marker.region}}</agm-info-window></agm-marker>
+
+      </agm-map>
+    </div>
+    <div class="col-md-5">
+      <h5>Qui sommes nous ?</h5>
+      <p class="description">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </p>
+      <h5>Comment ça marche ?</h5>
+      <p class="description">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+    </div>
+  </div>
+</div>
+
+<app-footer [isSticky]="false"></app-footer>
+
+

@@ -1,0 +1,33 @@
+.header-bottom {
+    height: 10em;
+    background-color: #F8F9FA;
+    margin-bottom: 2em;
+}
+
+.title {
+    padding-top: 4em;
+    color: grey;
+
+}
+
+.bg-light {
+    background-color: #FFC0CB !important;
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+    color: white;
+    font-size: 20px;
+}
+
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+mat-icon {
+    color : white;
+
+}
