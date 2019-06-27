@@ -65,7 +65,7 @@ import {UtilisateurService} from './shared/services/utilisateur.service';
     ReactiveFormsModule,
     MatNativeDateModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCrHj-fQEK6E-0AQPAv1AJe3xEjplzHYe0'
+      apiKey: ''
     }),
     NguCarouselModule,
     AmazingTimePickerModule,
