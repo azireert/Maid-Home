@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {VisiteService} from '../../shared/services/visite.service';
 import {Visite} from '../../shared/model/visite.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-planification',
@@ -10,7 +11,7 @@ import {Visite} from '../../shared/model/visite.model';
 })
 export class PlanificationComponent implements OnInit {
   visitForm: FormGroup;
-  constructor(private fb: FormBuilder, private visiteService: VisiteService) { }
+  constructor(private fb: FormBuilder, private visiteService: VisiteService, private router: Router) { }
 
   ngOnInit() {
     this.visitForm = this.fb.group({
@@ -42,6 +43,7 @@ export class PlanificationComponent implements OnInit {
     this.visiteService.postVisite(visite).subscribe(
         next => {
           console.log(next);
+          this.router.navigate(['/menages']);
         }, error => {
           console.log(error);
         }

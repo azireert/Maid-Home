@@ -1,14 +1,25 @@
 <app-header [title]="'Gérer vos ménages'"></app-header>
 
+<div *ngIf="isDataAvailable">
 <div class="container-fluid">
-  <div class="row">
+  <div class="row" *ngFor="let v of tabVisite">
     <div class="col-md-6">
-      <div class="element-menage shadow p-3 mb-5 bg-white rounded">
-        <p>lol</p>
-        <mat-divider></mat-divider>
-        <p>lol</p>
+      <div class="media position-relative shadow p-3 mb-5 bg-white rounded border" [ngClass]="{'border-warning':v.statut == 0, 'border-primary':v.statut == 1,'border-success':v.statut == 2,'border-danger':v.statut == 3 }">
+        <div class="mr-3" [ngClass]="{'element-warning':v.statut == 0, 'element-primary':v.statut == 1,'element-success':v.statut == 2,'element-danger':v.statut == 3 }" style="min-height: 2em;min-width: 2em"></div>
+        <div class="media-body">
+          <h5 class="mt-0">Ménage prévu le {{v.heureArrivee}}</h5>
+          <p><mat-icon>place</mat-icon> {{v.adresse}}, {{v.cp}} {{v.ville}}  <a href="https://www.google.fr/maps/@46.1443853,4.8618461,6.27z" target="_blank">Voir sur Google Map</a></p>
+          <p><mat-icon>subject</mat-icon> Description de la tâche : {{v.description}}</p>
+          <p><mat-icon>attach_money</mat-icon> Montant de la gratification : {{v.gratification}} $</p>
+          <button mat-button (click)="openDialog(getMenagebyIdVisite(v.id))"><mat-icon>face</mat-icon> {{getMenagebyIdVisite(v.id).prenom}} {{getMenagebyIdVisite(v.id).nom}}</button>
+
+        </div>
+        <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
   </div>
+</div>
 </div>
 

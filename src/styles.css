@@ -2,4 +2,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
-
+.info-text {
+    color: grey;
+}

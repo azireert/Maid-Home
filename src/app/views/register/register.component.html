@@ -1,0 +1,127 @@
+<div class="container-fluid formulaire">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <mat-card>
+        <form (ngSubmit)="sendUser(f)" #f="ngForm">
+      <mat-vertical-stepper [linear]="true" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Vous êtes</ng-template>
+              <mat-radio-group formControlName="isMaid">
+                <mat-radio-button (click)="hideTextArea()" value="0">à la recherche d'une personne qui pourrait ramasser vos chaussettes</mat-radio-button>
+                <mat-radio-button (click)="showTextArea()" value="1">cette gentille personne qui propose de les ramasser à votre place</mat-radio-button>
+              </mat-radio-group>
+            <div>
+              <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Suivant</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" >
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Vos informations personnelles</ng-template>
+            <div class="pb-1">
+            <mat-form-field>
+              <input matInput placeholder="Nom" formControlName="nom" required>
+
+            </mat-form-field>
+            </div>
+            <div class="pb-1">
+            <mat-form-field>
+              <input matInput placeholder="Prenom" formControlName="prenom" required>
+            </mat-form-field>
+            </div>
+            <div class="pb-1">
+              <mat-form-field>
+                <input matInput placeholder="Téléphone" formControlName="tel" required>
+              </mat-form-field>
+            </div>
+            <div class="pb-1">
+              <mat-form-field>
+                <input matInput placeholder="Adresse mail" formControlName="mail" required>
+              </mat-form-field>
+            </div>
+            <div class="pb-1">
+              <mat-form-field>
+                <input matInput type="password" placeholder="Mot de passe" formControlName="mdp" required>
+              </mat-form-field>
+            </div>
+            <div class="pb-1">
+              <mat-form-field>
+                <input matInput type="password" placeholder="Confirmer le mot de passe" formControlName="confirmMdp" required>
+              </mat-form-field>
+            </div>
+            <div *ngIf="isShow" id="description" class="pb-1">
+              <mat-form-field>
+                <textarea matInput formControlName="description" placeholder="Description de vous" required></textarea>
+              </mat-form-field>
+            </div>
+            <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Sexe</mat-label>
+              <mat-select formControlName="sexe" required>
+                <mat-option *ngFor="let sexe of sexe" [value]="sexe.value">
+                  {{sexe.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            </div>
+
+            <div>
+              <button mat-button matStepperPrevious>Précédent</button>
+              <button mat-button matStepperNext [disabled]="!secondFormGroup.valid">Suivant</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Votre localisation</ng-template>
+            <div class="pb-1">
+              <mat-form-field>
+                <input matInput placeholder="Adresse" formControlName="adresse" required>
+              </mat-form-field>
+            </div>
+            <div class="pb-1">
+              <mat-form-field>
+                <input matInput placeholder="Ville" formControlName="ville" required>
+              </mat-form-field>
+            </div>
+            <div class="pb-1">
+              <mat-form-field>
+                <input matInput placeholder="Code Postal" formControlName="cp" required>
+              </mat-form-field>
+            </div>
+            <div>
+            <div class="pb-1">
+              <mat-form-field>
+                <mat-label>Région</mat-label>
+                <mat-select formControlName="region" required>
+                  <mat-option *ngFor="let data of data" [value]="data.region" >
+                    {{data.region}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+              <button mat-button matStepperPrevious>Précédent</button>
+              <button mat-button matStepperNext [disabled]="!thirdFormGroup.valid">Suivant</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Confirmation</ng-template>
+          <div>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button type="submit" [disabled]="!thirdFormGroup.valid">S'inscrire <mat-icon>done</mat-icon></button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+
+

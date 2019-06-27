@@ -4,8 +4,18 @@ import {MaidListComponent} from './views/maid-list/maid-list.component';
 import {PlanificationComponent} from './views/planification/planification.component';
 import {MapComponent} from './views/map/map.component';
 import {VisiteListComponent} from './views/visite-list/visite-list.component';
+import {RegisterComponent} from './views/register/register.component';
+import {AuthComponent} from './views/auth/auth.component';
 
 const routes: Routes = [
+  {
+    path: 'connexion',
+    component: AuthComponent
+  },
+  {
+    path: 'inscription',
+    component: RegisterComponent
+  },
   {
     path: 'maids/:region',
     component: MaidListComponent
@@ -19,7 +29,7 @@ const routes: Routes = [
     component: VisiteListComponent
   },
   { path: '',
-    redirectTo: '/map',
+    redirectTo: '/connexion',
     pathMatch: 'full'
   },
   {
@@ -28,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/map'
+    redirectTo: '/connexion'
   }
 ];
 

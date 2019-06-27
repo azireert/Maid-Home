@@ -17,11 +17,13 @@
               </mat-card-header>
               <img mat-card-image [src]="m.photo" alt="Photo of a Shiba Inu">
               <mat-card-content>
+                <p><mat-icon>place</mat-icon><span class="info-text"> {{m.ville}}, {{m.cp}}</span></p>
                 <p>
-                  {{m.description}}
+                  <mat-icon>subject</mat-icon><span class="info-text"> {{m.description}}</span>
                 </p>
               </mat-card-content>
               <mat-card-actions class="text-center">
+                <button mat-button>Avis <mat-icon>thumbs_up_down</mat-icon></button>
                 <button mat-button>Notez <mat-icon>star_border</mat-icon></button>
                 <button mat-button routerLink="/planification/{{m.id}}">Planifier un rendez-vous</button>
               </mat-card-actions>

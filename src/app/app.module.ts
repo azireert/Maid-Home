@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { MaidListComponent } from './views/maid-list/maid-list.component';
 import {
   MatButtonModule,
-  MatCardModule, MatDatepickerModule, MatDividerModule,
+  MatCardModule, MatDatepickerModule, MatDialogModule, MatDividerModule,
   MatFormFieldModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
-  MatMenuModule, MatNativeDateModule,
+  MatMenuModule, MatNativeDateModule, MatRadioModule,
   MatSelectModule, MatStepperModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -26,6 +26,10 @@ import {NguCarouselModule} from '@ngu/carousel';
 import {VisiteService} from './shared/services/visite.service';
 import {AmazingTimePickerModule} from 'amazing-time-picker';
 import { VisiteListComponent } from './views/visite-list/visite-list.component';
+import { DialogMenageComponent } from './views/visite-list/dialog-menage/dialog-menage.component';
+import { AuthComponent } from './views/auth/auth.component';
+import { RegisterComponent } from './views/register/register.component';
+import {UtilisateurService} from './shared/services/utilisateur.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,13 @@ import { VisiteListComponent } from './views/visite-list/visite-list.component';
     PlanificationComponent,
     MapComponent,
     FooterComponent,
-    VisiteListComponent
+    VisiteListComponent,
+    DialogMenageComponent,
+    AuthComponent,
+    RegisterComponent
+  ],
+  entryComponents: [
+    DialogMenageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,14 +65,16 @@ import { VisiteListComponent } from './views/visite-list/visite-list.component';
     ReactiveFormsModule,
     MatNativeDateModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyCrHj-fQEK6E-0AQPAv1AJe3xEjplzHYe0'
     }),
     NguCarouselModule,
     AmazingTimePickerModule,
     MatStepperModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule,
+    MatRadioModule
   ],
-  providers: [MenageService, VisiteService],
+  providers: [MenageService, VisiteService, UtilisateurService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
