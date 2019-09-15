@@ -14,7 +14,7 @@ export class Menage {
     public photo?: string,
     public avatar?: string,
     public note?: string,
-    public estDispo?: string,
+    public estDispo?: number,
     public idVisite?: string,
     public id?: string,
     ) {}

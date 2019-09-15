@@ -1,0 +1,13 @@
+.description {
+    color : grey;
+}
+
+h5 {
+    font-weight: bold;
+    color : #FFC0CB;
+}
+
+button {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}

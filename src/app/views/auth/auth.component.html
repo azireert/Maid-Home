@@ -1,3 +1,39 @@
-<p>
-  auth works!
-</p>
+<div class="container-fluid formulaire">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <mat-card>
+        <div class="pb-1 text-center">
+          <img src="assets/img/aspi_swag.png" class="img-fluid" alt="logo"/>
+        </div>
+        <form [formGroup]="authForm" (ngSubmit)="login(f)" #f="ngForm" >
+        <div class="pb-1">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Adresse mail</mat-label>
+            <input matInput placeholder="exemple@htomail.fr" formControlName="mail">
+            <mat-icon matSuffix>mail</mat-icon>
+            <mat-hint *ngIf="isWrong">L'adresse ou le mot de passe est incorrect</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="pb-1">
+          <mat-form-field appearance="outline" class="full-width" >
+            <mat-label>Mot de passe</mat-label>
+            <input matInput  type="password" placeholder="" formControlName="mdp">
+            <mat-icon matSuffix>vpn_key</mat-icon>
+          </mat-form-field>
+        </div>
+          <div class="pb-1 text-center">
+            <mat-checkbox formControlName="isMaid">Je suis une Maid</mat-checkbox>
+          </div>
+          <div class="pb-1 text-center">
+            <button mat-button type="submit"><mat-icon>send</mat-icon> Connexion</button>
+          </div>
+          <div class="pb-1 text-center">
+            <a routerLink="/inscription">Vous n'avez pas de compte ?</a>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

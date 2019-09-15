@@ -3,18 +3,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" routerLink="/map">
-      <img src="../../../../assets/img/Bootstrap.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    <a class="navbar-brand">
+      <img src="assets/img/aspi_swag.png" width="40" height="40" class="d-inline-block align-top" alt="">
     </a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="isMaid === false">
         <a class="nav-link" routerLink="/map">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isMaid">
+        <a class="nav-link" routerLink="/acceuil">Acceuil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" routerLink="/menages">Mes ménages</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li>
     </ul>
   </div>
@@ -24,16 +24,12 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
-        <mat-icon>dialpad</mat-icon>
-        <span>Redial</span>
+        <mat-icon>face</mat-icon>
+        <span>{{getLogin()}}</span>
       </button>
-      <button mat-menu-item disabled>
-        <mat-icon>voicemail</mat-icon>
-        <span>Check voice mail</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>notifications_off</mat-icon>
-        <span>Disable alerts</span>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Déconnexion</span>
       </button>
     </mat-menu>
   </div>

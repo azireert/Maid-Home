@@ -11,5 +11,7 @@ export class Utilisateur {
         public region: string,
         public mdp?: string,
         public id?: string,
+        public idVisite?: string,
+        public idCommentaire?: string
     ) {}
 }

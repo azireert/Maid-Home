@@ -1,0 +1,38 @@
+<app-header [title]="'Acceuil'"></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6" *ngIf="isDispo === false">
+      <h5>Vous êtes actuellement <span>indisponible</span></h5>
+      <p class="description">
+        Les utilisateurs ne peuvent actuellement pas vous voir sur l'application mais vous pouvez vous rendre disponible en appuyant sur le bouton ci-dessous
+      </p>
+      <div class="text-center">
+        <button type="button" class="btn btn-secondary btn-lg" (click)="updateDispo()">Se rendre disponible</button>
+      </div>
+    </div>
+    <div class="col-md-6" *ngIf="isDispo">
+      <h5>Vous êtes actuellement <span>disponible</span></h5>
+      <p class="description">
+        Les utilisateurs peuvent vous voir et vous choisir sur l'application . Vous pouvez avoir un ménage à tout moment , restez sur vos gardes ! Pour vous rendre indisponible , cliquez sur le bouton ci-dessous
+      </p>
+      <div class="text-center">
+        <button type="button" class="btn btn-secondary btn-lg" (click)="updateIndispo()" >Se rendre indisponible</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h5>A propos de Maid Home</h5>
+      <p class="description">
+        Avec une importante quantitée d’utilisateurs répartis dans toutes les régions de France, MAID HOME est une Application permettant de recenser les différentes femmes/hommes de ménage les plus proche de chez soi avec la possibilité de consulter leur profil. L’application permet
+        également à nos utilisateurs de demander les services aux femmes/hommes de ménages. Il est également possible de laisser des commentaires et noter leur service. Un concept unique et innovant qui permettra de simplifier vos recherches.
+      </p>
+      <h5>Qui sommes nous ?</h5>
+      <p class="description">Nous sommes cinq étudiants : Antonin CATRIX, Geoffrey SOULAQUES, Adrien GAVORY, Yann Lukowiak et Valentin HUDZIAK en
+        seconde année à l’EPSI, nous avons créé cette application lors du projet POIN proposé par notre établissement</p>
+      <h5>Comment ça marche ?</h5>
+      <p class="description">Attendez qu'un de nos utilisateurs prennent un rendez-vous pour exécuter différentes
+        taches ménagère, vous avez la possibilité de confirmer et de valider les taches demandées</p>
+    </div>
+  </div>
+</div>
+
+<app-footer [isSticky]="true"></app-footer>

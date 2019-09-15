@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { MaidListComponent } from './views/maid-list/maid-list.component';
 import {
   MatButtonModule,
-  MatCardModule, MatDatepickerModule, MatDialogModule, MatDividerModule,
+  MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatDividerModule,
   MatFormFieldModule,
   MatGridListModule,
   MatIconModule, MatInputModule,
@@ -30,6 +30,14 @@ import { DialogMenageComponent } from './views/visite-list/dialog-menage/dialog-
 import { AuthComponent } from './views/auth/auth.component';
 import { RegisterComponent } from './views/register/register.component';
 import {UtilisateurService} from './shared/services/utilisateur.service';
+import {AuthGuard} from './shared/services/service.guard';
+import {AuthService} from './shared/services/auth.service';
+import { MaidHomeComponent } from './views/maid-home/maid-home.component';
+import { CommentaireComponent } from './shared/components/commentaire/commentaire.component';
+import {CommentaireService} from './shared/services/commentaire.service';
+import {MaidGuard} from './shared/services/service-maid.guard';
+import {UtilisateurGuard} from './shared/services/service-utilisateur.guard';
+import { DialogNoteComponent } from './shared/components/dialog-note/dialog-note.component';
 
 @NgModule({
   declarations: [
@@ -42,10 +50,13 @@ import {UtilisateurService} from './shared/services/utilisateur.service';
     VisiteListComponent,
     DialogMenageComponent,
     AuthComponent,
-    RegisterComponent
+    RegisterComponent,
+    MaidHomeComponent,
+    CommentaireComponent,
+    DialogNoteComponent
   ],
   entryComponents: [
-    DialogMenageComponent
+    DialogMenageComponent, DialogNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -65,16 +76,17 @@ import {UtilisateurService} from './shared/services/utilisateur.service';
     ReactiveFormsModule,
     MatNativeDateModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyCrHj-fQEK6E-0AQPAv1AJe3xEjplzHYe0'
     }),
     NguCarouselModule,
     AmazingTimePickerModule,
     MatStepperModule,
     MatDividerModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCheckboxModule
   ],
-  providers: [MenageService, VisiteService, UtilisateurService],
+  providers: [MenageService, VisiteService, UtilisateurService, AuthGuard, AuthService, CommentaireService, MaidGuard, UtilisateurGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

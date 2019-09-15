@@ -1,18 +1,19 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' +'../'+ data.avatar + ')'}"></div>
+    <div mat-card-avatar class="example-header-image" [ngStyle]="{ 'background-image': 'url(' + data.avatar + ')'}"></div>
     <mat-card-title>{{data.prenom}} {{data.nom}}</mat-card-title>
     <mat-card-subtitle>Note : {{data.note}}/10</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="'../'+data.photo" alt="Photo of a Shiba Inu">
+  <img mat-card-image [src]="data.photo" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p><mat-icon>place</mat-icon><span class="info-text"> {{data.ville}}, {{data.cp}}</span></p>
+    <p><mat-icon>phone_callback</mat-icon><span class="info-text"> {{data.tel}}</span></p>
     <p>
       <mat-icon>subject</mat-icon> <span class="info-text">  {{data.description}} </span>
     </p>
   </mat-card-content>
   <mat-card-actions class="text-center">
-    <button mat-button>Notez <mat-icon>star_border</mat-icon></button>
-    <button mat-button>Avis <mat-icon>thumbs_up_down</mat-icon></button>
+    <button mat-button (click)="openDialog(data)">Notez <mat-icon>star_border</mat-icon></button>
+    <button mat-button routerLink="/commentaire/{{data.id}}" (click)="closeDialog()">Avis <mat-icon>thumbs_up_down</mat-icon></button>
   </mat-card-actions>
 </mat-card>

@@ -3,6 +3,9 @@ import {MenageService} from '../../shared/services/menage.service';
 import {Menage} from '../../shared/model/menage.model';
 import {ActivatedRoute} from '@angular/router';
 import { NguCarousel, NguCarouselConfig } from '@ngu/carousel';
+import {DialogMenageComponent} from '../visite-list/dialog-menage/dialog-menage.component';
+import {MatDialog} from '@angular/material';
+import {DialogNoteComponent} from '../../shared/components/dialog-note/dialog-note.component';
 
 @Component({
   selector: 'app-maid-list',
@@ -23,7 +26,7 @@ export class MaidListComponent implements OnInit {
   };
 
 
-  constructor(private route: ActivatedRoute, private menageService: MenageService) { }
+  constructor(private route: ActivatedRoute, private menageService: MenageService, public dialog: MatDialog) { }
 
   ngOnInit() {
     const region = this.route.snapshot.paramMap.get('region');
@@ -36,5 +39,12 @@ export class MaidListComponent implements OnInit {
       this.isDataAvailable = true;
     });
   }
+
+  openDialog(maid) {
+    this.dialog.open(DialogNoteComponent, {
+      data:  maid,
+    });
+  }
+
 
 }

@@ -1,0 +1,15 @@
+<form [formGroup]="noteForm" (ngSubmit)="postNote(f)" #f="ngForm">
+  <div class="pb-1">
+  <mat-form-field>
+    <mat-label>Votre note</mat-label>
+    <mat-select formControlName="note">
+      <mat-option *ngFor="let n of notes" [value]="n">
+        {{n}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div class="pb-1">
+    <button mat-button type="submit" >Confirmez</button>
+  </div>
+</form>
